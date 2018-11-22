@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
+import { ProfilePage } from '../../pages';
+import './App.scss';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Move your buddy web challenge</h1>
+        <ProfilePage></ProfilePage>
       </div>
     );
   }
