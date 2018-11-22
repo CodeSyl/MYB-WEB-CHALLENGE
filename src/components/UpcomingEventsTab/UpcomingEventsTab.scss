@@ -1,0 +1,27 @@
+$gray-color: #6D6D6D;
+.upcoming__events {
+  .events__box {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   .card {
+     height: 10em;
+     margin: .5em;
+     padding: 1em;
+     grid-column: auto;
+     border-radius: 4%;
+     border: solid 1px #6D6D6D;
+     position: relative;
+     h3 {
+       padding: .5em 0;
+       margin: 0;
+       text-transform: uppercase;
+     }
+     .participants {
+       margin-top: 2.2em;
+       color: #6D6D6D;
+       position: absolute;
+       bottom: 1.5em;
+     }
+   }
+ }
+}

@@ -1,0 +1,9 @@
+.profile__page {
+  height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  padding: 2em;
+  .container {
+    grid-column: 5 / span 12;
+  }
+}

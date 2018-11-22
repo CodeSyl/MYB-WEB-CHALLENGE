@@ -1,0 +1,11 @@
+$inactive-color:#626262;
+.tab__bar {
+  width: 100%;
+  padding: 5em 0em 1.5em;
+  border-bottom: solid .5px;
+  .link {
+    display: inline;
+    padding: 1.3em;
+    border-bottom: solid 3px;
+  }
+}
