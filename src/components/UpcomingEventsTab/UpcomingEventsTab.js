@@ -9,11 +9,13 @@ const UpcomingEventsTab = () => {
       <h3>Upcoming</h3>
       <div className="events__box">
         {lastEvents.map((event, index) => {
-          let dateFormated = moment(event.date).format('dddd D MMMM');
           let hour = moment(event.date).format('H:HH');
+          let dateFormated = moment(event.date).format('dddd D MMMM');
+          let diffMonth = moment(new Date(event.date)).diff(moment(), 'months', true).toFixed();
+
           return (
             <div className="card" key={index}>
-              <p>in x months</p>
+              <p>in {diffMonth} months</p>
               <h3>{event.name}</h3>
               <p>{dateFormated}</p>
               <p>at {hour}</p>
