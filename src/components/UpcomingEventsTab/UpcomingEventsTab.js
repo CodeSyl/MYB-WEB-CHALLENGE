@@ -5,7 +5,7 @@ import { Fetch, Loader } from '../'
 
 import './UpcomingEventsTab.scss';
 
-const UpcomingEventsTab = ({ id }) => {
+const UpcomingEventsTab = ({ id = 1 }) => {
   return (
     <Fetch path={`/players/${id}/lastEvents`}>
       {({ isFetching, hasFailed, data }) => {
