@@ -1,12 +1,13 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import { Fetch, Loader } from '../'
 
 import './UpcomingEventsTab.scss';
 
-const UpcomingEventsTab = _ => {
+const UpcomingEventsTab = ({ id }) => {
   return (
-    <Fetch path="/players/1/lastEvents">
+    <Fetch path={`/players/${id}/lastEvents`}>
       {({ isFetching, hasFailed, data }) => {
         if (isFetching) return <Loader />
         if (hasFailed) return <h5>Servor error</h5>
@@ -39,6 +40,10 @@ const UpcomingEventsTab = _ => {
       }}
     </Fetch>
   );
+};
+
+UpcomingEventsTab.propTypes = {
+  id: PropTypes.string
 };
 
 export default UpcomingEventsTab;

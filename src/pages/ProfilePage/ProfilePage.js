@@ -1,30 +1,27 @@
 import React from 'react';
-import {
-  FriendsTab,
-  TabBar,
-  UpcomingEventsTab,
-  UserPanel,
-} from '../../components';
+import PropTypes from 'prop-types';
+import { TabBar, UserPanel, } from '../../components';
 
 import './ProfilePage.scss';
 
-class ProfilePage extends React.Component {
-
-  render() {
-    return (
-      <div className="profile__page">
-        <UserPanel />
-
-        <div className="container">
-          <TabBar>
-            <UpcomingEventsTab title="Upcoming events" ></UpcomingEventsTab>
-            <FriendsTab title="Friends"></FriendsTab>
-          </TabBar>
-        </div>
-
+const ProfilePage = props => {
+  return (
+    <div className="profile__page">
+      <UserPanel />
+      <div className="container">
+        <TabBar {...props} />
       </div>
-    );
-  }
+
+    </div>
+  );
+};
+
+ProfilePage.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.string
+  ]).isRequired
 };
 
 export default ProfilePage;

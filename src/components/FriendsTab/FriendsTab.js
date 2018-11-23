@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ImgCustom, Fetch, Loader } from '../';
 
 import './FriendsTab.scss';
 
-const FriendsTab = _ => {
+const FriendsTab = ({ id }) => {
   return (
-    <Fetch path="/players/1/friends">
+    <Fetch path={`/players/${id}/friends`}>
       {({ isFetching, hasFailed, data }) => {
         if (isFetching) return <Loader />
         if (hasFailed) return <h5>Servor error</h5>
@@ -36,6 +37,10 @@ const FriendsTab = _ => {
       }}
     </Fetch>
   )
+};
+
+FriendsTab.propTypes = {
+  id: PropTypes.string
 };
 
 export default FriendsTab;
