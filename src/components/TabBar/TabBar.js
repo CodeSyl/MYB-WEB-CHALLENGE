@@ -1,33 +1,35 @@
 import React from 'react';
+import classNames from 'classnames';
 import './TabBar.scss';
 
 class TabBar extends React.Component {
   state = {
-    active: true
+    upComing: true,
+    friends: false
   }
 
   showContent = ({ target }) => {
-    console.log("​TabBar -> showContent -> target", target)
+
+    target.name === "upcoming" && this.setState(state => ({ ...state, upComing: true, friends: false }))
+    target.name === "friends" && this.setState(state => ({ ...state, upComing: false, friends: true }))
   }
 
   render() {
-    console.log("​render -> this.props.children", this.props.children);
-
-    const Link = React.Children.map(this.props.children, child =>
-      <div
-        className="link"
-        onClick={this.showContent}>
-        <a href="#">{child.props.title}</a>
-      </div>
-    );
-
+    const { upComing, friends } = this.state;
     return (
       <div>
         <div className="tab__bar">
-          {Link}
+          <div className={classNames({ "link": true, "active": upComing })}>
+            <a name="upcoming" href="#" onClick={this.showContent}>{this.props.children[0].props.title}</a>
+          </div>
+          <div className={classNames({ "link": true, "active": friends })}>
+            <a href="#" name="friends" onClick={this.showContent}>{this.props.children[1].props.title}</a>
+          </div>
         </div>
-        {this.props.children}
-      </div>
+
+        {upComing && this.props.children[0]}
+        {friends && this.props.children[1]}
+      </div >
     );
 
   }

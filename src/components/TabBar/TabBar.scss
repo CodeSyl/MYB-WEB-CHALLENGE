@@ -6,6 +6,14 @@ $inactive-color:#626262;
   .link {
     display: inline;
     padding: 1.3em;
+    a {
+      padding: 1.3em;
+    }
+    button {
+      padding: 1.3em;
+    }
+  }
+  .active {
     border-bottom: solid 3px;
   }
 }

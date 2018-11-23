@@ -14,3 +14,13 @@ p {
   margin: 0;
   padding: 0;
 }
+
+*:focus {
+  outline: none !important
+}
+
+button {
+  padding: 0;
+  border: none;
+  font-size: 1em;
+}
