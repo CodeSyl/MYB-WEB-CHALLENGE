@@ -2,17 +2,31 @@ import React from 'react';
 import './TabBar.scss';
 
 class TabBar extends React.Component {
+  state = {
+    active: true
+  }
+
+  showContent = ({ target }) => {
+    console.log("​TabBar -> showContent -> target", target)
+  }
 
   render() {
-    const Link = React.Children.map(this.props.children, child => {
-      return (
-        <div className="link">{child.props.title}</div>
-      );
-    });
+    console.log("​render -> this.props.children", this.props.children);
+
+    const Link = React.Children.map(this.props.children, child =>
+      <div
+        className="link"
+        onClick={this.showContent}>
+        <a href="#">{child.props.title}</a>
+      </div>
+    );
 
     return (
-      <div className="tab__bar">
-        {Link}
+      <div>
+        <div className="tab__bar">
+          {Link}
+        </div>
+        {this.props.children}
       </div>
     );
 

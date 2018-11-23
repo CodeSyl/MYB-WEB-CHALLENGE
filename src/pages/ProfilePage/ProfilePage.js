@@ -16,11 +16,9 @@ class ProfilePage extends React.Component {
         <UserPanel />
         <div className="container">
           <TabBar>
-            <div title="Upcoming events" active="true"></div>
-            <div title="Friends" active="true"></div>
+            <UpcomingEventsTab title="Upcoming events"></UpcomingEventsTab>
+            <FriendsTab title="Friends"></FriendsTab>
           </TabBar>
-          <UpcomingEventsTab></UpcomingEventsTab>
-          <FriendsTab></FriendsTab>
         </div>
 
       </div>
