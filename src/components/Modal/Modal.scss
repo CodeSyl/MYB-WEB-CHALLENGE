@@ -1,0 +1,28 @@
+.modal {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.76);
+  background-color: rgba(0, 0, 0, 0.76);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .modal__container {
+    width: 40vw;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    button {
+      font-size: 1em;
+      padding: 0.5em 0.2em;
+      display: flex;
+      justify-content: end;
+      border-bottom: solid 1px;
+      margin: 0em 78% 2em;
+      cursor: pointer; // box-shadow: 0px 15px 10px -15px #111;
+    }
+  }
+}

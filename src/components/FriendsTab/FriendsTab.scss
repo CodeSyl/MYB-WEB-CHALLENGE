@@ -3,6 +3,8 @@ $gray-color: #6D6D6D;
   .events__box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    height: 85vh;
+    overflow: scroll;
     .card {
       height: 5em;
       margin: .5em;

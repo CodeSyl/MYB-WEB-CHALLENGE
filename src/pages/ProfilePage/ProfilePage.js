@@ -7,11 +7,10 @@ import './ProfilePage.scss';
 const ProfilePage = props => {
   return (
     <div className="profile__page">
-      <UserPanel />
+      <UserPanel player={1} />
       <div className="container">
         <TabBar {...props} />
       </div>
-
     </div>
   );
 };

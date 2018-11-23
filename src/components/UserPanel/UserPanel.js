@@ -4,9 +4,9 @@ import { Loader, ImgCustom, Fetch } from '../';
 
 import './UserPanel.scss';
 
-const UserPanel = _ => {
+const UserPanel = ({ player }) => {
   return (
-    <Fetch path="/players/1">
+    <Fetch path={`/players/${player}`}>
       {({ isFetching, hasFailed, data }) => {
         if (hasFailed) return <h5>Servor error</h5>
         if (isFetching) return <Loader />
