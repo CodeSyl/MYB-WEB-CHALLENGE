@@ -19,7 +19,7 @@ class ProfilePage extends React.Component {
             <div title="Upcoming events" active="true"></div>
             <div title="Friends" active="true"></div>
           </TabBar>
-
+          <UpcomingEventsTab></UpcomingEventsTab>
           <FriendsTab></FriendsTab>
         </div>
 
