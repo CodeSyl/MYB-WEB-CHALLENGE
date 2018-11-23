@@ -15,6 +15,7 @@ class TabBar extends React.Component {
 
   render() {
     const { upcoming, friends } = this.state;
+
     return (
       <div>
         <div className="tab__bar">

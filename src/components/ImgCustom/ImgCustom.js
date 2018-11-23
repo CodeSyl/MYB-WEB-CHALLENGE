@@ -1,7 +1,8 @@
 import React from 'react';
 import Img from 'react-image';
-import { ImgLoader } from '../'
+import { Loader } from '../'
 import blur from '../../images/blur.png'
+
 const ImgCustom = ({ img }) => {
   return (
     <Img
@@ -10,7 +11,7 @@ const ImgCustom = ({ img }) => {
         blur
       ]}
       loader={
-        <ImgLoader />
+        <Loader />
       }
     />
   );

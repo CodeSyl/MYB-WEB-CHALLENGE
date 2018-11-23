@@ -14,9 +14,10 @@ class ProfilePage extends React.Component {
     return (
       <div className="profile__page">
         <UserPanel />
+
         <div className="container">
           <TabBar>
-            <UpcomingEventsTab title="Upcoming events"></UpcomingEventsTab>
+            <UpcomingEventsTab title="Upcoming events" ></UpcomingEventsTab>
             <FriendsTab title="Friends"></FriendsTab>
           </TabBar>
         </div>

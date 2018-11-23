@@ -1,36 +1,25 @@
 import React from 'react';
+import axios from 'axios';
 
-const Fetch = (url) => (Component) =>
-  class WithFetching extends React.Component {
-    constructor(props) {
-      super(props);
+class Fetch extends React.Component {
+  state = {
+    isLoading: false,
+    hasFailed: false,
+    data: null,
+  }
 
-      this.state = {
-        data: null,
-        isLoading: false,
-        error: null,
-      };
-    }
-
-    componentDidMount() {
-      this.setState({ isLoading: true });
-
-      axios.get(url)
-        .then(result => this.setState({
-          data: result.data,
-          isLoading: false
-        }))
-        .catch(error => this.setState({
-          error,
-          isLoading: false
-        }));
-    }
-
-    render() {
-      return <Component {...this.props} {...this.state} />;
+  async componentDidMount() {
+    try {
+      this.setState(state => ({ ...state, isLoading: true }));
+      const { data } = await axios.get(this.props.path);
+      this.setState(state => ({ ...state, data: data, isLoading: false }));
+    } catch (error) {
+      this.setState(state => ({ ...state, hasFailed: true }))
     }
   }
 
+  render() {
+    return this.props.children(this.state);
+  }
+}
 export default Fetch;
-
-

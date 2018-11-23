@@ -1,7 +1,6 @@
 import React from 'react';
-import './ImgLoader.scss';
 
-const ImgLoader = () => {
+const Loader = () => {
   return (
     <div className="lds-spinner">
       <div>
@@ -12,4 +11,4 @@ const ImgLoader = () => {
   );
 };
 
-export default ImgLoader;
+export default Loader;
