@@ -1,7 +1,8 @@
 import React from 'react';
 import Img from 'react-image';
-import { Loader } from '../'
-import blur from '../../images/blur.png'
+import PropTypes from 'prop-types';
+import { Loader } from '../';
+import blur from '../../images/blur.png';
 
 const ImgCustom = ({ img }) => {
   return (
@@ -15,6 +16,10 @@ const ImgCustom = ({ img }) => {
       }
     />
   );
+};
+
+ImgCustom.propTypes = {
+  img: PropTypes.string.isRequired
 };
 
 export default ImgCustom;

@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Loader = () => {
+import './Loader.scss';
+
+const Loader = _ => {
   return (
     <div className="lds-spinner">
       <div>
