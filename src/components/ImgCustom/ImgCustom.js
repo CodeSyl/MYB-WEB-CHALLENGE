@@ -1,14 +1,18 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import Img from 'react-image';
-import PropTypes from 'prop-types';
-import { Loader } from '../';
+import Loader from '../Loader/Loader';
 import blur from '../../images/blur.png';
 
-const ImgCustom = ({ img }) => {
+type Props = {
+  img: string
+}
+
+const ImgCustom = (props: Props) => {
   return (
     <Img
       src={[
-        img,
+        props.img,
         blur
       ]}
       loader={
@@ -16,10 +20,6 @@ const ImgCustom = ({ img }) => {
       }
     />
   );
-};
-
-ImgCustom.propTypes = {
-  img: PropTypes.string.isRequired
 };
 
 export default ImgCustom;

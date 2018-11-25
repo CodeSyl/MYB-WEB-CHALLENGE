@@ -1,10 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { TabBar, UserPanel, } from '../../components';
+// @flow
+import * as React from 'react';
+import UserPanel from '../../components/UserPanel/UserPanel';
+import TabBar from '../../components/TabBar/TabBar';
 
 import './ProfilePage.scss';
 
-const ProfilePage = props => {
+type Props = {
+  children: React.Node,
+}
+
+const ProfilePage = (props: Props) => {
   return (
     <div className="profile__page">
       <UserPanel player={1} />
@@ -13,14 +18,6 @@ const ProfilePage = props => {
       </div>
     </div>
   );
-};
-
-ProfilePage.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-    PropTypes.string
-  ]).isRequired
 };
 
 export default ProfilePage;

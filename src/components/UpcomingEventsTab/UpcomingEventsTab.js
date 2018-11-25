@@ -1,13 +1,18 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import moment from 'moment';
-import PropTypes from 'prop-types';
-import { Fetch, Loader } from '../'
+import Fetch from '../Fetch/Fetch';
+import Loader from '../Loader/Loader';
 
 import './UpcomingEventsTab.scss';
 
-const UpcomingEventsTab = ({ id = 1 }) => {
+type Props = {
+  id: number
+}
+
+const UpcomingEventsTab = (props: Props) => {
   return (
-    <Fetch path={`/players/${id}/lastEvents`}>
+    <Fetch path={`/players/${props.id}/lastEvents`}>
       {({ isFetching, hasFailed, data }) => {
         if (isFetching) return <Loader />
         if (hasFailed) return <h5>Servor error</h5>
@@ -40,10 +45,6 @@ const UpcomingEventsTab = ({ id = 1 }) => {
       }}
     </Fetch>
   );
-};
-
-UpcomingEventsTab.propTypes = {
-  id: PropTypes.string
 };
 
 export default UpcomingEventsTab;

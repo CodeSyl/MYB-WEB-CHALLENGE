@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Loader.scss';
 
-const Loader = _ => {
+const Loader = () => {
   return (
     <div className="lds-spinner">
       <div>

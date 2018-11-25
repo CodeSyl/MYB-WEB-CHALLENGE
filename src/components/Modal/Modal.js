@@ -1,27 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { UserPanel } from '../';
+// @ flow
+import * as React from 'react';
+import UserPanel from '../UserPanel/UserPanel';
 import './Modal.scss';
 
-const Modal = ({ display, playerId, closeModal }) => {
+type Props = {
+  display: boolean,
+  playerId: number,
+  closeModal: void
+}
 
+const Modal = (props: Props) => {
+  const { display, playerId, closeModal } = props;
   if (display && playerId) {
     return (
       <div className="modal" onClick={e => closeModal(e)}>
         <div className="modal__container">
-          <UserPanel player={playerId}></UserPanel>
+          <UserPanel playerId={playerId}></UserPanel>
           <button className="btn" onClick={e => closeModal(e)}>Close</button>
         </div>
       </div>
     );
   }
   return null;
-};
-
-Modal.propTypes = {
-  display: PropTypes.bool.isRequired,
-  playerId: PropTypes.number.isRequired,
-  closeModal: PropTypes.func.isRequired
 };
 
 export default Modal;

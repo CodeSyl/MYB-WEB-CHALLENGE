@@ -1,13 +1,21 @@
-import React from 'react';
+// @flow
+import * as  React from 'react';
 import moment from 'moment';
-import { Loader, ImgCustom, Fetch } from '../';
+import Loader from '../Loader/Loader';
+import ImgCustom from '../ImgCustom/ImgCustom';
+import Fetch from '../Fetch/Fetch';
 
 import './UserPanel.scss';
 
-const UserPanel = ({ player }) => {
+type Props = {
+  playerId: number
+};
+
+const UserPanel = (props: Props) => {
+
   return (
-    <Fetch path={`/players/${player}`}>
-      {({ isFetching, hasFailed, data }) => {
+    <Fetch path={`/players/${props.playerId}`}>
+      {({ isFetching, hasFailed, data }: { isFetching: boolean, hasFailed: boolean, data: any }) => {
         if (hasFailed) return <h5>Servor error</h5>
         if (isFetching) return <Loader />
 

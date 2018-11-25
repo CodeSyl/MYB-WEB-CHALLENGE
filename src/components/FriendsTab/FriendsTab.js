@@ -1,10 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Fetch, ImgCustom, Loader, Modal } from '../';
+// @flow
+import * as React from 'react';
+import Fetch from '../Fetch/Fetch';
+import ImgCustom from '../ImgCustom/ImgCustom';
+import Loader from '../Loader/Loader';
+import Modal from '../Modal/Modal';
 
 import './FriendsTab.scss';
 
-class FriendsTab extends React.Component {
+type ModalType = {
+  display: boolean,
+  playerId: number
+};
+
+type Props = {
+  id: string
+};
+
+type State = {
+  modal: ModalType
+};
+
+class FriendsTab extends React.Component<Props, State> {
   state = {
     modal: {
       display: false,
@@ -12,14 +28,13 @@ class FriendsTab extends React.Component {
     }
   };
 
-  openModal = id => {
+  openModal = (id: number) => {
     this.setState(state => ({ ...state, modal: { ...state.modal, playerId: id, display: true } }))
   }
 
-  closeModal = e => {
+  closeModal = (e: SyntheticEvent<>) => {
     e.stopPropagation();
-    const { target } = e;
-    if (target.className === "modal" || target.className === "btn") {
+    if (e.target.className === "modal" || e.target.className === "btn") {
       this.setState(state => ({ ...state, modal: { ...state.modal, display: false, playerId: 0 } }))
     }
   }
@@ -72,9 +87,5 @@ class FriendsTab extends React.Component {
     )
   }
 }
-
-FriendsTab.propTypes = {
-  id: PropTypes.string
-};
 
 export default FriendsTab;

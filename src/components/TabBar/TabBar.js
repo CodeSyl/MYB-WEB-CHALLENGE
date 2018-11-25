@@ -1,10 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as  React from 'react';
 import { Link } from "@reach/router";
 
 import './TabBar.scss';
 
-const TabBar = ({ children }) => {
+type Props = {
+  children: React.ChildrenArray<React.Element<any>>
+};
+
+const TabBar = (props: Props) => {
   return (
     <div>
       <div className="tab__bar">
@@ -26,13 +30,9 @@ const TabBar = ({ children }) => {
         </div>
 
       </div>
-      {children}
+      {props.children}
     </div>
   );
-};
-
-TabBar.propTypes = {
-  children: PropTypes.element.isRequired
 };
 
 export default TabBar;  

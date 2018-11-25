@@ -1,7 +1,20 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import axios from 'axios';
 
-class Fetch extends React.Component {
+type Props = {
+  path: string,
+  children: React.Element
+};
+
+type State = {
+  isLoading: boolean,
+  hasFailed: boolean,
+  data: any,
+};
+
+class Fetch extends React.Component<Props, State> {
   state = {
     isLoading: false,
     hasFailed: false,

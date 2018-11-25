@@ -1,11 +1,13 @@
-import React from 'react';
-import { ProfilePage } from '../../pages';
-import { UpcomingEventsTab, FriendsTab } from '../';
+// @flow
+import * as React from 'react';
+import ProfilePage from '../../pages/ProfilePage/ProfilePage';
+import FriendsTab from '../FriendsTab/FriendsTab';
+import UpcomingEventsTab from '../UpcomingEventsTab/UpcomingEventsTab';
 import { Router, Redirect } from "@reach/router";
 
 import './App.scss';
 
-const App = _ => {
+const App = () => {
   return (
     <div className="App">
       <Router>
