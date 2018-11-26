@@ -64,8 +64,7 @@ class FriendsTab extends React.Component<Props, State> {
                       <div
                         className="card"
                         key={index}
-                        onClick={_ => this.openModal(player.id)}
-                      >
+                        onClick={() => this.openModal(player.id)}>
                         <div className="box">
                           <ImgCustom img={player.picture}></ImgCustom>
                         </div>

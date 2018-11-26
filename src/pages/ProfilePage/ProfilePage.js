@@ -12,7 +12,7 @@ type Props = {
 const ProfilePage = (props: Props) => {
   return (
     <div className="profile__page">
-      <UserPanel player={1} />
+      <UserPanel playerId={1} />
       <div className="container">
         <TabBar {...props} />
       </div>
