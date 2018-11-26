@@ -1,12 +1,10 @@
 // @flow
 import * as React from 'react';
-import Fetch from '../Fetch/Fetch';
-import ImgCustom from '../ImgCustom/ImgCustom';
 import Loader from '../Loader/Loader';
+import ImgCustom from '../ImgCustom/ImgCustom';
+import FetchApi from '../../FetchApi';
 
 import './FriendsTab.scss';
-
-const Modal = React.lazy(() => import('../Modal/Modal'));
 
 type ModalType = {
   display: boolean,
@@ -20,6 +18,8 @@ type Props = {
 type State = {
   modal: ModalType
 };
+
+const Modal = React.lazy(() => import('../Modal/Modal'));
 
 class FriendsTab extends React.Component<Props, State> {
   state = {
@@ -41,50 +41,42 @@ class FriendsTab extends React.Component<Props, State> {
   }
 
   render() {
+
     const { id } = this.props;
     const { modal: { display, playerId } } = this.state;
-    return (
-      <Fetch path={`/players/${id}/friends`}>
-        {({ isFetching, hasFailed, data }) => {
-          if (isFetching) return <Loader />
-          if (hasFailed) return <h5>Servor error</h5>
-          if (data) {
-            return (
-              <div className="friends__tab">
-                <React.Suspense fallback={<Loader />}>
-                  <Modal
-                    display={display}
-                    playerId={playerId}
-                    closeModal={this.closeModal}
-                  />
-                </React.Suspense>
+    const data = FetchApi.read(`/players/${id}/friends`);
 
-                <h3>Friends</h3>
-                <div className="events__box">
-                  {data.map((player, index) => {
-                    return (
-                      <div
-                        className="card"
-                        key={index}
-                        onClick={() => this.openModal(player.id)}>
-                        <div className="box">
-                          <ImgCustom img={player.picture}></ImgCustom>
-                        </div>
-                        <div className="box">
-                          <h3>{player.first_name} {player.last_name}</h3>
-                          <p>{player.total_events} events</p>
-                          <p>{player.total_friends} friends</p>
-                        </div>
-                      </div>
-                    )
-                  })}
+    return (
+      <div className="friends__tab">
+        <React.Suspense fallback={<Loader />}>
+          <Modal
+            display={display}
+            playerId={playerId}
+            closeModal={this.closeModal}
+          />
+        </React.Suspense>
+
+        <h3>Friends</h3>
+        <div className="events__box">
+          {data.map((player, index) => {
+            return (
+              <div
+                className="card"
+                key={index}
+                onClick={() => this.openModal(player.id)}>
+                <div className="box">
+                  <ImgCustom img={player.picture}></ImgCustom>
+                </div>
+                <div className="box">
+                  <h3>{player.first_name} {player.last_name}</h3>
+                  <p>{player.total_events} events</p>
+                  <p>{player.total_friends} friends</p>
                 </div>
               </div>
             )
-          }
-          return <Loader />
-        }}
-      </Fetch>
+          })}
+        </div>
+      </div>
     )
   }
 }

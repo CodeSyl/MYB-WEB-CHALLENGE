@@ -21,7 +21,7 @@ const App = () => {
           </ProfilePage>
         </Router>
       </React.Suspense>
-    </div>
+    </div >
   );
 };
 
