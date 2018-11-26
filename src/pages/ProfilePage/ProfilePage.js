@@ -7,7 +7,7 @@ import './ProfilePage.scss';
 
 type Props = {
   children: React.Node,
-}
+};
 
 const ProfilePage = (props: Props) => {
   return (

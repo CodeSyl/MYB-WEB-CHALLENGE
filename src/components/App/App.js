@@ -13,7 +13,7 @@ const App = () => {
       <Router>
         <Redirect from="/" to="players/1/upcoming" noThrow />
         <ProfilePage path="/">
-          <UpcomingEventsTab path="/players/:1/upcoming" />
+          <UpcomingEventsTab path="/players/:id/upcoming" />
           <FriendsTab path="/players/:id/friends" />
         </ProfilePage>
       </Router>
