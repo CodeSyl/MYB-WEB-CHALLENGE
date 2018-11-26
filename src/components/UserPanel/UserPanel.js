@@ -12,7 +12,6 @@ type Props = {
 };
 
 const UserPanel = (props: Props) => {
-  console.log("​UserPanel -> props", props)
 
   return (
     <Fetch path={`/players/${props.playerId}`}>
