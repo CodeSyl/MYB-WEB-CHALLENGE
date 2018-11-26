@@ -11,7 +11,7 @@ type Props = {
 }
 
 const UpcomingEventsTab = (props: Props) => {
-  console.log("​UpcomingEventsTab -> props", props)
+
   return (
     <Fetch path={`/players/${props.id}/lastEvents`}>
       {({ isFetching, hasFailed, data }) => {

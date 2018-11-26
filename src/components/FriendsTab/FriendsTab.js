@@ -3,9 +3,10 @@ import * as React from 'react';
 import Fetch from '../Fetch/Fetch';
 import ImgCustom from '../ImgCustom/ImgCustom';
 import Loader from '../Loader/Loader';
-import Modal from '../Modal/Modal';
 
 import './FriendsTab.scss';
+
+const Modal = React.lazy(() => import('../Modal/Modal'));
 
 type ModalType = {
   display: boolean,
@@ -50,12 +51,13 @@ class FriendsTab extends React.Component<Props, State> {
           if (data) {
             return (
               <div className="friends__tab">
-
-                <Modal
-                  display={display}
-                  playerId={playerId}
-                  closeModal={this.closeModal}
-                />
+                <React.Suspense fallback={<Loader />}>
+                  <Modal
+                    display={display}
+                    playerId={playerId}
+                    closeModal={this.closeModal}
+                  />
+                </React.Suspense>
 
                 <h3>Friends</h3>
                 <div className="events__box">
